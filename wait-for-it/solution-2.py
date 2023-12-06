@@ -4,8 +4,6 @@ current_working_directory = Path.cwd()
 input_file = open(str(current_working_directory) + '/input.txt', 'r')
 race_lines = input_file.readlines()
 
-charge_speed_per_second = 1
-
 # time_held as x
 # time_total as t
 # race goal as g
