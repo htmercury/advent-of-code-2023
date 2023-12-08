@@ -1,4 +1,5 @@
 from pathlib import Path
+import math
 current_working_directory = Path.cwd()
 input_file = open(str(current_working_directory) + '/input.txt', 'r')
 map_lines = input_file.readlines()
@@ -9,13 +10,6 @@ class Node:
         self.value = value
         self.left = None
         self.right = None
-
-def lcm(num_one, num_two):
-    greater = max(num_one, num_two) 
-    smallest = min(num_one, num_two) 
-    for i in range(greater, num_one*num_two+1, greater): 
-        if i % smallest == 0: 
-            return i 
 
 def parse_inputs(lines):
     node_value_map = {}
@@ -63,12 +57,7 @@ def solution():
         steps = get_steps(pattern, root_node)
         steps_list.append(steps)
     
-    answer = 1
-    while len(steps_list) != 0:
-        steps = steps_list.pop()
-        answer = lcm(answer, steps)
-    
-    return answer
+    return math.lcm(*steps_list)
 
 
 print(solution())
