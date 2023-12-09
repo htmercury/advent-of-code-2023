@@ -9,4 +9,5 @@ Python 3.10.4
 6. Wait For It
 7. Camel Cards
 8. Haunted Wasteland
+9. Mirage Maintenance
 ```
