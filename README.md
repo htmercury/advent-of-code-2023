@@ -10,4 +10,5 @@ Python 3.10.4
 7. Camel Cards
 8. Haunted Wasteland
 9. Mirage Maintenance
+10. Pipe Maze
 ```
