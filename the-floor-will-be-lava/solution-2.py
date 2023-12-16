@@ -33,8 +33,10 @@ def visualize_map(lines, energized):
     for line in lines:
         print(''.join(line))
 
+
 def move(pos, direction_idx):
     return (pos[0] + directions[direction_idx][0], pos[1] + directions[direction_idx][1])
+
 
 def get_count(parsed_lines, y_max, x_max, root_node):
     queue = []
@@ -45,7 +47,7 @@ def get_count(parsed_lines, y_max, x_max, root_node):
 
     while len(queue) != 0:
         beam_pos, direction_idx = queue.pop(0)
-        
+
         if is_valid(beam_pos, y_max, x_max):
             energized.add(beam_pos)
         else:
@@ -75,13 +77,15 @@ def get_count(parsed_lines, y_max, x_max, root_node):
                 new_nodes.append((move(beam_pos, 3), 3))
         elif curr_tile == '|':
             if direction_idx == 0 or direction_idx == 2:
-                new_nodes.append((move(beam_pos, direction_idx), direction_idx))
+                new_nodes.append(
+                    (move(beam_pos, direction_idx), direction_idx))
             else:
-                new_nodes.append((beam_pos, 0))
-                new_nodes.append((beam_pos, 2))
+                new_nodes.append((move(beam_pos, 0), 0))
+                new_nodes.append((move(beam_pos, 2), 2))
         else:  # '-'
             if direction_idx == 1 or direction_idx == 3:
-                new_nodes.append((move(beam_pos, direction_idx), direction_idx))
+                new_nodes.append(
+                    (move(beam_pos, direction_idx), direction_idx))
             else:
                 new_nodes.append((move(beam_pos, 1), 1))
                 new_nodes.append((move(beam_pos, 3), 3))
@@ -93,19 +97,21 @@ def get_count(parsed_lines, y_max, x_max, root_node):
 
     return len(energized)
 
+
 def solution():
     parsed_lines, y_max, x_max = parse_inputs(floor_lines)
     results = []
     for x_idx in range(x_max):
         results.append(get_count(parsed_lines, y_max, x_max, ((0, x_idx), 2)))
-        results.append(get_count(parsed_lines, y_max, x_max, ((y_max - 1, x_idx), 0)))
-    
+        results.append(get_count(parsed_lines, y_max,
+                       x_max, ((y_max - 1, x_idx), 0)))
+
     for y_idx in range(y_max):
         results.append(get_count(parsed_lines, y_max, x_max, ((y_idx, 0), 3)))
-        results.append(get_count(parsed_lines, y_max, x_max, ((y_idx, x_max - 1), 1)))
-        
+        results.append(get_count(parsed_lines, y_max,
+                       x_max, ((y_idx, x_max - 1), 1)))
+
     return max(results)
-    
 
 
 print(solution())

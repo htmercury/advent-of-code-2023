@@ -81,8 +81,8 @@ def solution():
             if direction_idx == 0 or direction_idx == 2:
                 new_nodes.append((move(beam_pos, direction_idx), direction_idx))
             else:
-                new_nodes.append((beam_pos, 0))
-                new_nodes.append((beam_pos, 2))
+                new_nodes.append((move(beam_pos, 0), 0))
+                new_nodes.append((move(beam_pos, 2), 2))
         else:  # '-'
             if direction_idx == 1 or direction_idx == 3:
                 new_nodes.append((move(beam_pos, direction_idx), direction_idx))
