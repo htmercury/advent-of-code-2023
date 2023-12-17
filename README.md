@@ -17,4 +17,5 @@ Python 3.10.4
 14. Parabolic Reflector Dish
 15. Lens Library
 16. The Floor Will Be Lava
+17. Clumsy Crucible
 ```
