@@ -19,4 +19,5 @@ Python 3.10.4
 16. The Floor Will Be Lava
 17. Clumsy Crucible
 18. Lavaduct Lagoon
+19. Aplenty
 ```
