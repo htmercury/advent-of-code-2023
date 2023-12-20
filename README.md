@@ -20,4 +20,5 @@ Python 3.10.4
 17. Clumsy Crucible
 18. Lavaduct Lagoon
 19. Aplenty
+20. Pulse Propagation
 ```
