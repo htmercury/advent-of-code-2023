@@ -1,11 +1,5 @@
 import heapq
-from functools import cache
-import re
-import collections
-import itertools as it
-from copy import copy, deepcopy
 from pathlib import Path
-import time
 current_working_directory = Path.cwd()
 input_file = open(str(current_working_directory) + '/input.txt', 'r')
 brick_lines = input_file.readlines()
