@@ -158,16 +158,16 @@ def solution():
         fall = set([target_brick])
 
         while len(queue) != 0:
-            falling_bricks = queue.pop()
-            # get bricks that should have fallen as well
-            for supporting_bricks in brick_supporting[falling_bricks]:
-                # check what bricks do those fallen bricks support
-                supported_bricks = brick_supported_by[supporting_bricks]
+            falling_brick = queue.pop()
+            # get bricks that should have fall accordingly due to the current falling brick
+            for supporting_brick in brick_supporting[falling_brick]:
+                # check what bricks are the above bricks supported by
+                supported_bricks = brick_supported_by[supporting_brick]
 
                 # these bricks would fall accordingly if all its dependencies has already fallen
                 if supported_bricks.issubset(fall):
-                    fall.add(supporting_bricks)
-                    queue.append(supporting_bricks)
+                    fall.add(supporting_brick)
+                    queue.append(supporting_brick)
 
         fall.remove(target_brick)  # delete the brick
         results += len(fall)
