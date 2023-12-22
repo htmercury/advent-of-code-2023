@@ -1,7 +1,7 @@
 from pathlib import Path
 current_working_directory = Path.cwd()
 input_file = open(str(current_working_directory) + '/input.txt', 'r')
-scratch_cards = input_file.readlines()
+step_lines = input_file.readlines()
 
 # n, w, s, e
 directions = [
@@ -28,7 +28,7 @@ def parse_inputs(lines):
 
 
 def solution():
-    start, rocks, y_max, x_max = parse_inputs(scratch_cards)
+    start, rocks, y_max, x_max = parse_inputs(step_lines)
     
     root_node = (0, start, start)
     queue = []

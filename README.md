@@ -22,4 +22,5 @@ Python 3.10.4
 19. Aplenty
 20. Pulse Propagation
 21. Step Counter
+22. Sand Slabs
 ```
