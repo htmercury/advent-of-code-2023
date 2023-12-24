@@ -24,4 +24,5 @@ Python 3.10.4
 21. Step Counter
 22. Sand Slabs
 23. A Long Walk
+24. Never Tell Me The Odds
 ```
