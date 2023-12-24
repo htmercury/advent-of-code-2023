@@ -23,4 +23,5 @@ Python 3.10.4
 20. Pulse Propagation
 21. Step Counter
 22. Sand Slabs
+23. A Long Walk
 ```
