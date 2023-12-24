@@ -4,6 +4,7 @@ current_working_directory = Path.cwd()
 input_file = open(str(current_working_directory) + '/input.txt', 'r')
 wind_lines = input_file.readlines()
 
+
 def parse_inputs(lines):
     results = []
     for line in lines:
@@ -18,36 +19,16 @@ def parse_inputs(lines):
             else:
                 clean_data.append(int(value))
         results.append(tuple(clean_data))
-    
+
     return results
 
-def get_coefficients(px, py, vx, vy):
-    a = (vy/vx)
-    b = -1
-    c = a * -px + py
-    return a, b, c
-
-def within_bounds(val, min_val, max_val):
-    return min_val <= val < max_val
-
-def is_past(px, py, vx, vy, x0, y0):
-    if vy < 0 and y0 > py:
-        return True
-    elif vy > 0 and y0 < py:
-        return True
-    elif vx < 0 and x0 > px:
-        return True
-    elif vx > 0 and x0 < px:
-        return True
-    
-    return False
 
 def solution():
     parsed_inputs = parse_inputs(wind_lines)
-    
+
     x, y, z, vx, vy, vz = Ints("x y z vx vy vz")
-         
-    s = Solver()       
+
+    s = Solver()
     for idx, hail in enumerate(parsed_inputs[:3]):
         t = Int(f"t{idx}")
         s.add(t > 0)
@@ -59,7 +40,7 @@ def solution():
     x = s.model()[x].as_long()
     y = s.model()[y].as_long()
     z = s.model()[z].as_long()
-    
+
     return x + y + z
 
 
